@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Szczep "Desant" - Strona Główna</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Nagłówek */
+        header {
+            background: linear-gradient(135deg, #8B0000 0%, #5D0000 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8B0000;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Nawigacja */
+        nav {
+            background: #333;
+            padding: 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-menu li {
+            margin: 0;
+        }
+        
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            background: #555;
+        }
+        
+        /* Sekcje główne */
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #8B0000;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #8B0000;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #8B0000, #333);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Jednostki */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .unit-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #8B0000;
+            transition: transform 0.3s ease;
+        }
+        
+        .unit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .unit-name {
+            font-weight: bold;
+            color: #8B0000;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Aktualności */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .news-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid #8B0000;
+        }
+        
+        .news-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Wydarzenia */
+        .events-list {
+            list-style: none;
+        }
+        
+        .event-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+        }
+        
+        .event-date {
+            font-weight: bold;
+            color: #8B0000;
+        }
+        
+        /* Kadra */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .staff-member {
+            text-align: center;
+        }
+        
+        .staff-photo {
+            width: 100px;
+            height: 100px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
+        .staff-name {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        
+        .staff-role {
+            color: #8B0000;
+            font-size: 0.9rem;
+        }
+        
+        /* Social Media */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #8B0000;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Kontakt */
+        .contact-info {
+            text-align: center;
+        }
+        
+        .contact-item {
+            margin: 1rem 0;
+        }
+        
+        /* Galeria */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-photo {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+        }
+        
+        .gallery-caption {
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        /* Panel administracyjny */
+        #admin-login {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .admin-btn {
+            background: #8B0000;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        #admin-panel {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .admin-controls {
+            margin: 1rem 0;
+        }
+        
+        .admin-btn-small {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin: 0 0.25rem;
+        }
+        
+        /* Formularz logowania */
+        #login-form {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            max-width: 300px;
+            margin: 1rem auto;
+            display: none;
+        }
+        
+        #login-form input {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        /* Stopka */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* Mobilna wersja */
+        @media (max-width: 768px) {
+            .nav-container {
+                overflow-x: auto;
+            }
+            
+            .nav-menu {
+                flex-wrap: nowrap;
+            }
+            
+            .nav-menu a {
+                padding: 1rem 1rem;
+                font-size: 0.9rem;
+                white-space: nowrap;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-image {
+                height: 200px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Nagłówek -->
+    <header>
+        <div class="container">
+            <div class="logo-placeholder">DS</div>
+            <h1>X Szczep Specjalnościowy "Desant"</h1>
+            <p class="subtitle">im. Spadochroniarzy Cichociemnych</p>
+        </div>
+    </header>
+
+    <!-- Nawigacja -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#home">Strona główna</a></li>
+                <li><a href="#units">Jednostki</a></li>
+                <li><a href="#news">Aktualności</a></li>
+                <li><a href="#events">Wydarzenia</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#staff">Kadra</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Image -->
+        <div class="hero-image">
+            Zdjęcie główne szczepu
+        </div>
+
+        <!-- Jednostki -->
+        <section id="units">
+            <h2>Nasze Jednostki</h2>
+            <div class="units-grid">
+                <div class="unit-card">
+                    <h3>77 Obronna Drużyna Wędrownicza</h3>
+                    <p class="unit-name">"Niedźwiedzie"</p>
+                    <p>im. Kaprala Wojtka</p>
+                </div>
+                
+                <div class="unit-card">
+                    <h3>75 Łącznościowa Drużyna Harcerzy Starszych</h3>
+                    <p class="unit-name">"Enigma"</p>
+                    <p>im. Mariana Rejewskiego</p>
+                </div>
+                
+                <div class="unit-card">
+                    <h3>53 Obronna Drużyna Harcerska</h3>
+                    <p class="unit-name">"Rudego"</p>
+                    <p>im. Jana Bytnara</p>
+                </div>
+                
+                <div class="unit-card">
+                    <h3>71 Gromada Zuchowa</h3>
+                    <p class="unit-name">"Wilcze łapki"</p>
+                    <p></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aktualności -->
+        <section id="news">
+            <h2>Aktualności</h2>
+            <div class="news-grid">
+                <div class="news-item">
+                    <div class="news-date">15 marca 2024</div>
+                    <h3>Rozpoczęcie roku harcerskiego</h3>
+                    <p>Zapraszamy wszystkich harcerzy do udziału w corocznej uroczystości rozpoczęcia roku harcerskiego.</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">10 marca 2024</div>
+                    <h3>Szkolenie kadry</h3>
+                    <p>W przyszłą sobotę odbędzie się szkolenie dla drużynowych i wychowawców.</p>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">5 marca 2024</div>
+                    <h3>Zakończenie zimowego obozu</h3>
+                    <p>Grupa zuchów i harcerzy zakończyła zimowy obóz w Gorcach. Wspaniałe wspomnienia!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wydarzenia -->
+        <section id="events">
+            <h2>Nadchodzące wydarzenia</h2>
+            <ul class="events-list">
+                <li class="event-item">
+                    <span class="event-date">25 marca 2024</span> - Obozownictwo harcerskie (77 ODW)
+                </li>
+                <li class="event-item">
+                    <span class="event-date">30 marca 2024</span> - Szkolenie techniczne (53 ODH)
+                </li>
+                <li class="event-item">
+                    <span class="event-date">5 kwietnia 2024</span> - Koncert harcerski (wszystkie jednostki)
+                </li>
+                <li class="event-item">
+                    <span class="event-date">12 kwietnia 2024</span> - Wiosenne bieganie (71 GZ)
+                </li>
+            </ul>
+        </section>
+
+        <!-- Galeria -->
+        <section id="gallery">
+            <h2>Galeria zdjęć</h2>
+            
+            <!-- Przycisk logowania admina -->
+            <div id="admin-login">
+                <button class="admin-btn" onclick="showLoginForm()">🔐 Panel administratora</button>
+            </div>
+            
+            <!-- Formularz logowania -->
+            <div id="login-form">
+                <h3>Logowanie kadry</h3>
+                <input type="text" id="username" placeholder="Login">
+                <input type="password" id="password" placeholder="Hasło">
+                <button class="admin-btn" onclick="login()">Zaloguj</button>
+                <button class="admin-btn" onclick="hideLoginForm()" style="background: #6c757d;">Anuluj</button>
+            </div>
+            
+            <!-- Panel administracyjny -->
+            <div id="admin-panel">
+                <h3>🔧 Panel administracyjny</h3>
+                <div class="admin-controls">
+                    <button class="admin-btn-small" onclick="addPhoto()">➕ Dodaj zdjęcie</button>
+                    <button class="admin-btn-small" onclick="editModeToggle()">✏️ Edytuj opisy</button>
+                    <button class="admin-btn-small" onclick="logout()" style="background: #dc3545;">🔒 Wyloguj</button>
+                </div>
+            </div>
+            
+            <div class="gallery-grid" id="gallery-container">
+                <div class="gallery-item">
+                    <div class="gallery-photo" style="background: #ddd;">
+                        Zdjęcie
+                    </div>
+                    <div class="gallery-caption">Obozownictwo Letnie 2023</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-photo" style="background: #bbb;">
+                        Zdjęcie
+                    </div>
+                    <div class="gallery-caption">Zbiórka Majowa</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-photo" style="background: #999;">
+                        Zdjęcie
+                    </div>
+                    <div class="gallery-caption">Wyjazd do Krakowa</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-photo" style="background: #aaa;">
+                        Zdjęcie
+                    </div>
+                    <div class="gallery-caption">Święto Harcerstwa</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kadra -->
+        <section id="staff">
+            <h2>Nasza kadra</h2>
+            <div class="staff-grid">
+                <div class="staff-member">
+                    <div class="staff-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-name">Jan Kowalski</div>
+                    <div class="staff-role">Szczepowy</div>
+                    <div>jan@desant.pl</div>
+                </div>
+                
+                <div class="staff-member">
+                    <div class="staff-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-name">Anna Nowak</div>
+                    <div class="staff-role">Zastępca szczepowego</div>
+                    <div>anna@desant.pl</div>
+                </div>
+                
+                <div class="staff-member">
+                    <div class="staff-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-name">Piotr Wiśniewski</div>
+                    <div class="staff-role">Drużynowy 77 ODW</div>
+                    <div>piotr@desant.pl</div>
+                </div>
+                
+                <div class="staff-member">
+                    <div class="staff-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="staff-name">Katarzyna Zielińska</div>
+                    <div class="staff-role">Drużynowa 75 ŁDHS</div>
+                    <div>kasia@desant.pl</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt i Social Media -->
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email:</strong> kontakt@desant.pl
+                </div>
+                <div class="contact-item">
+                    <strong>Telefon:</strong> +48 123 456 789
+                </div>
+                <div class="contact-item">
+                    <strong>Adres:</strong> ul. Harcerska 15, 00-001 Warszawa
+                </div>
+                
+                <h3 style="margin-top: 2rem; color: #8B0000;">Znajdź nas online:</h3>
+                <div class="social-links" style="margin-top: 1rem;">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Stopka -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 X Szczep "Desant" im. Spadochroniarzy Cichociemnych</p>
+            <p>Strona stworzona z pasją harcerską ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dane logowania (w prawdziwej wersji byłyby na serwerze)
+        const validCredentials = {
+            username: "kadra",
+            password: "harcerstwo2024"
+        };
+        
+        let isAdminLoggedIn = false;
+        
+        // Pokaż formularz logowania
+        function showLoginForm() {
+            document.getElementById('login-form').style.display = 'block';
+        }
+        
+        // Ukryj formularz logowania
+        function hideLoginForm() {
+            document.getElementById('login-form').style.display = 'none';
+        }
+        
+        // Logowanie
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === validCredentials.username && password === validCredentials.password) {
+                isAdminLoggedIn = true;
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('admin-panel').style.display = 'block';
+                alert('Zalogowano pomyślnie!');
+            } else {
+                alert('Nieprawidłowy login lub hasło!');
+            }
+        }
+        
+        // Wylogowanie
+        function logout() {
+            isAdminLoggedIn = false;
+            document.getElementById('admin-panel').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            alert('Wylogowano');
+        }
+        
+        // Dodaj zdjęcie
+        function addPhoto() {
+            const gallery = document.getElementById('gallery-container');
+            const newPhoto = document.createElement('div');
+            newPhoto.className = 'gallery-item';
+            newPhoto.innerHTML = `
+                <div class="gallery-photo" style="background: #eee;">
+                    NOWE ZDJĘCIE
+                </div>
+                <div class="gallery-caption">
+                    <input type="text" placeholder="Opis zdjęcia" style="width: 100%; border: 1px solid #ddd; padding: 0.25rem; margin: 0.25rem 0;">
+                </div>
+            `;
+            gallery.appendChild(newPhoto);
+        }
+        
+        // Tryb edycji
+        let editMode = false;
+        function editModeToggle() {
+            editMode = !editMode;
+            const captions = document.querySelectorAll('.gallery-caption');
+            
+            if (editMode) {
+                captions.forEach(caption => {
+                    if (!caption.querySelector('input')) {
+                        const currentText = caption.textContent;
+                        caption.innerHTML = `<input type="text" value="${currentText}" style="width: 100%; border: 1px solid #ddd; padding: 0.25rem;">`;
+                    }
+                });
+                alert('Tryb edycji włączony. Kliknij opis, aby edytować.');
+            } else {
+                captions.forEach(caption => {
+                    const input = caption.querySelector('input');
+                    if (input) {
+                        caption.textContent = input.value;
+                    }
+                });
+                alert('Zmiany zostały zapisane.');
+            }
+        }
+        
+        // Obsługa Enter w formularzu logowania
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && document.getElementById('login-form').style.display === 'block') {
+                login();
+            }
+        });
+    </script>
+</body>
+</html>
